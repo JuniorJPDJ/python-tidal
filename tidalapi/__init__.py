@@ -488,7 +488,7 @@ class Session(object):
         for item in json_obj:
             nextArtist = self._parse_artist(item)
             allArtists.append(nextArtist)
-            if nextArtist.id <> artist_id:
+            if nextArtist.id != artist_id:
                 ftArtists.append(nextArtist)
         return (allArtists, ftArtists)
 
@@ -616,7 +616,7 @@ class Favorites(object):
         return self.ids
 
     def get(self, content_type, limit=9999):
-        items = self._session._map_request(self._base_url + '/%s' % content_type, params={'limit': limit if content_type <> 'videos' else min(limit, 100)}, ret=content_type)
+        items = self._session._map_request(self._base_url + '/%s' % content_type, params={'limit': limit if content_type != 'videos' else min(limit, 100)}, ret=content_type)
         self.ids[content_type] = ['%s' % item.id for item in items]
         return items
 
