@@ -434,7 +434,7 @@ class Session(object):
             'query': value,
             'limit': limit,
         }
-        if isinstance(field, basestring):
+        if isinstance(field, str):
             what = field.upper()
             params.update({'types': what if what == 'ALL' or what.endswith('S') else what + 'S'})
         elif isinstance(field, Iterable):
@@ -621,7 +621,7 @@ class Favorites(object):
         return items
 
     def add(self, content_type, item_ids):
-        if isinstance(item_ids, basestring):
+        if isinstance(item_ids, str):
             ids = [item_ids]
         else:
             ids = item_ids
